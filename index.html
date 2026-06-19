@@ -422,6 +422,38 @@
       margin-right: 0.3rem;
     }
 
+    /* certificates */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .cert-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .cert-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+    .cert-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #f5f9fe;
+    }
+    .cert-label {
+      padding: 1.2rem 1.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      border-top: 2px solid var(--gray-light);
+    }
+
     /* contact */
     .contact-grid {
       display: grid;
@@ -597,6 +629,7 @@
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -702,6 +735,27 @@
       </div>
     </section>
 
+    <!-- Certificates Section -->
+    <section id="certificates">
+      <div class="container">
+        <h2 class="section-title">Certificates</h2>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <img src="exhibit.jpg" alt="Exhibit Certificate" class="cert-img" loading="lazy">
+            <div class="cert-label">Exhibit</div>
+          </div>
+          <div class="cert-card">
+            <img src="syscoc.jpg" alt="System Certificate of Completion" class="cert-img" loading="lazy">
+            <div class="cert-label">System Certificate of Completion</div>
+          </div>
+          <div class="cert-card">
+            <img src="sysojt.jpg" alt="System On-the-Job Training" class="cert-img" loading="lazy">
+            <div class="cert-label">System OJT Certificate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" style="background: var(--gray-light);">
       <div class="container">
@@ -781,7 +835,7 @@
 
     // entrance animation
     const animateOnScroll = () => {
-      const cards = document.querySelectorAll('.edu-card, .project-card, .skill-category, .contact-form, .contact-info, .about-text, .about-right');
+      const cards = document.querySelectorAll('.edu-card, .project-card, .skill-category, .contact-form, .contact-info, .about-text, .about-right, .cert-card');
       cards.forEach(card => {
         const rect = card.getBoundingClientRect();
         if(rect.top < window.innerHeight - 100) {
@@ -790,7 +844,7 @@
         }
       });
     };
-    document.querySelectorAll('.edu-card, .project-card, .skill-category, .contact-form, .contact-info, .about-text, .about-right').forEach(el => {
+    document.querySelectorAll('.edu-card, .project-card, .skill-category, .contact-form, .contact-info, .about-text, .about-right, .cert-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(15px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
